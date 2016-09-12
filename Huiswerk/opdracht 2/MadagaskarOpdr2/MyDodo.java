@@ -1,10 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * 
  * @author Sjaak Smetsers
  * @version Version 1.2 -- 11-03-2015
  */
+
+/**
+ * 
+ * @author Sjaak
+ */
+
+
 public class MyDodo extends Dodo
 {
     private int myNrOfEggsHatched;
@@ -20,10 +26,24 @@ public class MyDodo extends Dodo
 
     /**
      * 
+     * move
      */
-    public void act() {
+    
+      /**
+ * variable voor completion
+ */
 
+
+    
+    public void act() {
+        
+          if (canMove()){
+        step();
     }
+        else {
+         turnLeft ();   
+    }
+};
 
     /**
      * 
@@ -41,26 +61,20 @@ public class MyDodo extends Dodo
         return myNrOfEggsHatched;
     }
 
-    /**
-     * Move one cell forward in the current direction.
-     */
-    public void move() {
-        if ( canMove() ) {
-            step();
-        } else {
-            showError( "I'm stuck!" );
-        }
-    }
+ 
 
     /**
      * Test if we can move forward. Return true if we can, false otherwise.
      */
     public boolean canMove() {
-        if ( ! borderAhead() ){
+        if ( ! borderAhead() && !fenceAhead () ){
             return true;
         } else {
             return false;
         }
-    } 
 
+   };
+   
 }
+    
+
